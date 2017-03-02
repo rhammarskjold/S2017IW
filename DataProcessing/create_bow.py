@@ -2,16 +2,13 @@ import numpy as np
 import process_utils as pu
 
 
-def parseFile(fname, labeled=False):
-    file = open(fname)
-
 def main():
     print "reading vocabulary"
     vocab_list, vocab_dict = pu.read_in_vocab("../ProcessedData/vocab_10.csv")
     files = pu.get_all_unlabeled()
     bows = []
     print "parsing files"
-    for fname in ["../SentenceCorpus/unlabeled_articles/arxiv_unlabeled/1.txt"]:
+    for fname in files:
         full_text = (open(fname)).read()
         full_text = full_text.replace("### abstract ###\n", "")
         full_text = full_text.replace("### introduction ###\n", "")
