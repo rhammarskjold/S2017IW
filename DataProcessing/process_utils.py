@@ -5,6 +5,10 @@ import glob
 def get_all_unlabeled():
     return glob.glob("../SentenceCorpus/unlabeled_articles/*/*.txt")
 
+REVIEWER = "1"
+def get_all_labeled():
+    return glob.glob("../SentenceCorpus/labeled_articles/*" + REVIEWER + ".txt")
+
 def stem(word):
     regexp = r'^(.*?)(ing|ly|ed|ious|ies|ive|es|s|ment)?$'
     stem, _ = re.findall(regexp, word)[0]
